@@ -2,11 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import connectDB from './config/db.js'
+import connectDB from './src/lib/db.js'
 
 //app config
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 8000
 dotenv.config({
     path: './.env'
 })
@@ -36,7 +36,7 @@ connectDB()
 
 
 //Routes import
-import userRouter from './routes/user.routes.js'
+import userRouter from './src/routes/user.routes.js'
 
 
 
