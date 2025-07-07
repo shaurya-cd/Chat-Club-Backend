@@ -19,4 +19,4 @@ const messageSchema = new Schema({
     }
 },{timestamps:true})
 
-export const Message = Mongoose.model("Message",messageSchema)
+export const Message = mongoose.model("Message",messageSchema)

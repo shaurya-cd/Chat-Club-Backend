@@ -54,7 +54,12 @@ const registerUser = asyncHandler( async (req , res) => {
         if (newUser) {
             createToken(newUser._id, res)
             await newUser.save()
-            return res.status(201).json({data:newUser, message:"Registeration Successfull"})
+            return res.status(201).json({data:{
+                id:newUser._id,
+                fullName:newUser.fullName,
+                email:newUser.email,
+                ProfilePic:newUser.ProfilePic
+            }, message:"Registeration Successfull"})
         } else {
             return res.status(400).json({message:"Invalid user data"})
         }
@@ -84,7 +89,12 @@ const loginUser = asyncHandler( async (req,res) => {
         }
 
         createToken(user._id,res)
-        res.status(200).json({data:user,message:"Login Successfull"})
+        res.status(200).json({data:{
+            id:user._id,
+            fullName:user.fullName,
+            email:user.email,
+            ProfilePic:user.ProfilePic
+        },message:"Login Successfull"})
 
     } catch (error) {
         console.log("Error in login Controller",error.message)
