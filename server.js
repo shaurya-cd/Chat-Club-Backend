@@ -37,12 +37,12 @@ connectDB()
 
 //Routes import
 import userRouter from './src/routes/user.routes.js'
-
+import msgRouter from './src/routes/message.routes.js'
 
 
 //api endpoints
 app.use('/api/v1/user',userRouter)
-
+app.use('/api/v1/msg',msgRouter)
 
 
 

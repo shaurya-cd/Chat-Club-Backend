@@ -106,7 +106,7 @@ const logoutUser = asyncHandler( async (req,res) => {
 const updateProfile = asyncHandler ( async (req, res) => {
 
     try {
-        const { ProfilePic } = req.files
+        const { ProfilePic } = req.body
         const userId = req.user._id
 
         if (!ProfilePic) {
@@ -142,5 +142,5 @@ const checkAuth = asyncHandler ( async (req, res) => {
 })
 
 export{
-    registerUser,loginUser,logoutUser,updateProfile,checkAuth
+    createToken,registerUser,loginUser,logoutUser,updateProfile,checkAuth
 }
