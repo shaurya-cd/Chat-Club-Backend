@@ -140,10 +140,10 @@ const updateProfile = asyncHandler ( async (req, res) => {
 
 })
 
-const checkAuth = asyncHandler ( async (req, res) => {
+const checkAuth = asyncHandler ( async (req, res) => { 
     const user = req.user
     try {
-        return res.status(200).json({data:user,message:"Fetched Successfully"})
+        return res.status(200).json(user)
     } catch (error) {
         console.log("Error in checkAuth",error.message)
         res.status(500).json({message:"Internal Server Error"})
