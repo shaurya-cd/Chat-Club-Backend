@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import { asyncHandler } from "../utils/asyncHandler.js";
 import cloudinary from "../lib/cloudinary.js";
-import { getReceiverSocketId } from "../lib/socket.js";
+import { getReceiverSocketId,io } from "../lib/socket.js";
 
 
 const getUserForSlider = asyncHandler (async (req,res) => {
