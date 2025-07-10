@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true, limit: '10mb' }))
 app.use(express.static("public"))
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://chat-club-alpha.vercel.app",
     credentials: true
 }))
 
