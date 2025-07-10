@@ -10,4 +10,4 @@ userRouter.route('/logout').post(logoutUser)
 userRouter.route('/update').put(authMiddleware,updateProfile)
 userRouter.route('/check').get(authMiddleware,checkAuth)
 
-export default userRouter;``
+export default userRouter;

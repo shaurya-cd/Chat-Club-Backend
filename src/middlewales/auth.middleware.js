@@ -3,7 +3,7 @@ import { User } from '../models/user.model.js';
 
 const authMiddleware = async (req,res,next) => {
     try {
-        const {token} = req.cookie;
+        const {token} = req.cookies;
         if (!token) {
             return res.status(401).json({success:false,message:"Unauthorized - Login again"})
         }
@@ -25,7 +25,7 @@ const authMiddleware = async (req,res,next) => {
         next();
     } catch (error) {
         console.log(error)
-        res.json({success:false,message:"Error"})
+        res.json({success:false,message:Error})
     }
 }
 

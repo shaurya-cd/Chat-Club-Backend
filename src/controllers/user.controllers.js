@@ -129,9 +129,9 @@ const updateProfile = asyncHandler ( async (req, res) => {
             return res.status(400).json({message:"Error while uploading"})
         }
 
-        const updatedUser = await User.findByIdAndUpdate(userId,{ProfilePic:updateProfile.secure_url},{new:true})
+        const updatedUser = await User.findByIdAndUpdate(userId,{ProfilePic:uploadResponse.secure_url},{new:true})
 
-        res.status(200).json({data:updatedUser,message:"Profile Pic Updated"})
+        res.status(200).json(updatedUser)
 
     } catch (error) {
         console.log("Error in updating profile",error.message)
