@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import { asyncHandler } from "../utils/asyncHandler.js";
 import cloudinary from "../lib/cloudinary.js";
+import { getReceiverSocketId } from "../lib/socket.js";
 
 
 const getUserForSlider = asyncHandler (async (req,res) => {
@@ -56,6 +57,11 @@ const sendMessages = asyncHandler( async (req,res) => {
         })
 
         await newMessage.save()
+
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
 
         return res.status(201).json(newMessage)
 
